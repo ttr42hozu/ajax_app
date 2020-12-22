@@ -4,8 +4,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content], checked: false)
+    # 発展4-4 入力された情報のcontentと、未読の状態で表示したいのでcheckedをfalseでデータベースに保存
+    render json:{ post: post }
+    # 発展4-4 レスポンスはjsonにする記述
+    # post: postの意味はpostテーブルの変数postという意味？
   end
 
   def checked
