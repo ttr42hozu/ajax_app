@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def checked
     post = Post.find(params[:id])
     if post.checked 
-    # checkedプロパティはチェックボックスが選択されていればtrueを、そうでなければfalseを返す
+    # 発展4-2 checkedプロパティはチェックボックスが選択されていればtrueを、そうでなければfalseを返す
       post.update(checked: false)
     else
       post.update(checked: true)
@@ -19,7 +19,8 @@ class PostsController < ApplicationController
 
     item = Post.find(params[:id])
     render json: { post: item }
-    # item = Post.find(params[:id])で取得し直し、render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
+    # 発展4-2 item = Post.find(params[:id])で取得し直し、render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
+
   end
 end
 
